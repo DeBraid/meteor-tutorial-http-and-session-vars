@@ -26,9 +26,11 @@ if (Meteor.isServer) {
       getTweets: function () {
         result = Meteor.http.get("https://twitter.com/Royal_Arse/status/538330380273979393");
         $ = cheerio.load(result.content);
-        var resp = $('#stream-items-id > li:nth-child(n) > div > div > p').text();
-        return resp;
-      }
+        // var open = $('div.permalink-inner.permalink-tweet-container > div > div > p').text();
+        var body = $('#stream-items-id > li:nth-child(n) > div > div > p').text();
+        return body;
+      },
+
     })
 
   });
